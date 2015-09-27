@@ -127,7 +127,6 @@ module.exports = function(grunt) {
     });
     // Default task(s).
     grunt.registerTask('default', ['clean','jade','concat','sass','copy']);
-    grunt.registerTask('test', ['connect']);
 
 
 };
