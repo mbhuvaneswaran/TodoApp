@@ -82,14 +82,6 @@ module.exports = function(grunt) {
                         dest: 'build/js/site.js'
                     }
                 ]
-            },
-            icon: {
-                files: [
-                    {
-                        src: "icon/trash.svg",
-                        dest: "build/icon/trash.svg"
-                    }
-                ]
             }
         },
         copy: {
@@ -126,6 +118,7 @@ module.exports = function(grunt) {
         }
     });
     // Default task(s).
+    //Didn't uglify.
     grunt.registerTask('default', ['clean','jade','concat','sass','copy']);
 
 
