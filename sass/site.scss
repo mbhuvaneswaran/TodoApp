@@ -69,9 +69,11 @@ body{
   }
   .list-title{
     position:relative;
-    height:30px;
+    //height:30px;
     color:white;
     font-weight:bold;
+    padding: 10px;
+    word-break: break-all;
     span{
       line-height:30px;
       display:table;
