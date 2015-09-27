@@ -1,12 +1,17 @@
 # TodoApp
 TodoApp application helps you to organize your tasks by creating multiple task lists and add todo items to it.
 # Installation
-- Download the source and have npm installed
+- Download the source and have npm,grunt installed
 
 ```
 npm install
 ```
 This will install all required modules.
+```
+grunt default
+```
+This will build the application inside build folder.
+
 #Application Usage.
 - Enter a list name and click on "Add List" button to add a new list.
 - Each list has a input box in which todo item description can be entered and pressing enter key will add a todo item.
