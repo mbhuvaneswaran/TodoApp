@@ -77,6 +77,19 @@ body{
       display:table;
       margin:0 auto;
     }
+    .remove-list{
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: white;
+      padding: 5px;
+      margin: -11px;
+      border: 1px solid white;
+      border-radius: 50px;
+      background-color: #293A0C;
+      line-height: 1px;
+      cursor: pointer;
+    }
 
   }
   .todo-container{

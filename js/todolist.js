@@ -2,7 +2,8 @@
  * Created by bhuvaneswaranm on 9/22/15.
  */
 (function(TODO){
-    function TodoList(listName){
+    function TodoList(listName,app){
+        var app=app;
         var self=this;
         var name=listName;
         var todosElement;
@@ -62,6 +63,9 @@
                 todos[--selectedTodo].template.classList.add('selected');
 
         }
+        this.removeList=function(){
+                app.removeTodoList(this);
+        }
         function initialize(){
             var template=getTemplate(name);
             todosElement=template.querySelector('.todos');
@@ -89,6 +93,7 @@
             var template='<div class="list-container">'
                 +'<div class="list-title">'
                 +'<span>'+listName+'</span>'
+                +'<span class="right remove-list"><i class="mdi mdi-close"></i></span>'
                 +'</div>'
                 +'<div class="todo-list-settings">'
                 +'<input type="text" class="todo-item-text">'
@@ -100,8 +105,13 @@
         }
         function attachEvents(template){
             var input=template.querySelector('.todo-item-text');
+            var deleteElm=template.querySelector('.remove-list');
             TODO.Event.on('keypress',input,keyPressHandler);
+            TODO.Event.on('click',deleteElm,deleteListHandler);
 
+        }
+        function deleteListHandler(){
+            self.removeList();
         }
         function keyPressHandler(event){
             if (event.which == 13 || event.keyCode == 13) {

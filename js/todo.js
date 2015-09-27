@@ -5,6 +5,7 @@ var TODO={};
 (function (TODO) {
     function TodoApp(rootElm){
         var rootElement=rootElm;
+        var self=this;
         var appTemplate;
         var selectedList=-1;
         var lists=[];
@@ -56,6 +57,10 @@ var TODO={};
             e:{
                 code:69,
                 status:false
+            },
+            d:{
+                code:68,
+                status:false
             }
 
 
@@ -64,6 +69,11 @@ var TODO={};
             //initialize todoapp
             initialize();
 
+        }
+        this.removeTodoList=function(list){
+                list.template.parentNode.removeChild(list.template);
+                lists.splice(lists.indexOf(list),1);
+                selectedList=-1;
         }
         function initialize() {
             //Get the initial template and append to root of application
@@ -75,10 +85,11 @@ var TODO={};
         function addTodoList(){
             //Add new todo list and add the entry to lists.
             var listName=appTemplate.querySelector('.list-input').value;
-            var list=new TODO.TodoList(listName).init();
+            var list=new TODO.TodoList(listName,self).init();
             rootElement.appendChild(list.template);
             lists.push(list);
         }
+
         function getTemplate(){
                 var template='<div class="todo-main-container"><div class="todo-settings">'
                 +'<input type="text" class="list-input">'
@@ -93,6 +104,7 @@ var TODO={};
                 TODO.Event.on('click',btn,addTodoList);
                 TODO.Event.on('keydown',document.body,keyBoardDownHandler);
                 TODO.Event.on('keyup',document.body,keyBoardUpHandler);
+
 
         }
         function keyPressHandler(event){
@@ -114,6 +126,8 @@ var TODO={};
                 case keyCodes.i.code :keyCodes.i.status=true;break;
                 case keyCodes.c.code :keyCodes.c.status=true;break;
                 case keyCodes.e.code :keyCodes.e.status=true;break;
+                case keyCodes.d.code :keyCodes.d.status=true;break;
+
             }
             if(keyCodes.alt.status){
                 if(keyCodes.right.status){
@@ -153,6 +167,11 @@ var TODO={};
                     input.focus();
                     input.value="";
 
+                }
+                if(keyCodes.d.status){
+                    if(selectedList>=0){
+                        self.removeTodoList(lists[selectedList]);
+                    }
                 }
 
             }
@@ -231,6 +250,9 @@ var TODO={};
                     break;
                 case keyCodes.e.code :
                     keyCodes.e.status = false;
+                    break;
+                case keyCodes.d.code :
+                    keyCodes.d.status = false;
                     break;
 
             }
