@@ -50,7 +50,7 @@ To focus on the input box in the todo list, navigate to any list
 Press e
 ```
 #Testing
-Basic unit test cases have been written
+Basic unit test cases have been written.
 Below command will run jasmine test cases.
 ```
 grunt karma
