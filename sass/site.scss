@@ -1,6 +1,11 @@
+$body-background-color:#e9eaed;
+$header-background-color:teal;
+$button-color:#55acee;
+$list-background-color:#3D6A96;
+$list-selected-background-color:#7D7DA5;
 .header{
   height:50px;
-  background-color: teal;
+  background-color: $header-background-color;
   position: absolute;
   left: 0;
   top: 0;
@@ -18,7 +23,7 @@ body{
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: #e9eaed;
+  background-color: $body-background-color;
   margin: 10px;
   margin-top:55px;
 
@@ -29,7 +34,7 @@ body{
     background-color:transparent;
   }
   .button{
-    background-color:#55acee;
+    background-color:$button-color;
     color:white;
     margin:3px;
     padding:5px;
@@ -50,8 +55,7 @@ body{
     padding-right:10px;
   }
   .list-container{
-    background-color:  rgba(125, 125, 165, 0.71);
-    background-color: #3D6A96;
+    background-color: $list-background-color;
     width:20%;
     float:left;
     position:relative;
@@ -60,7 +64,7 @@ body{
     border-radius: 10px;
   }
   .list-container.selected{
-    background-color:#7D7DA5;
+    background-color:$list-selected-background-color;
     box-shadow: 0 0 5px 5px #9C9999;
   }
   .list-title{
@@ -68,12 +72,12 @@ body{
     height:30px;
     color:white;
     font-weight:bold;
+    span{
+      line-height:30px;
+      display:table;
+      margin:0 auto;
+    }
 
-  }
-  .list-title span{
-    line-height:30px;
-    display:table;
-    margin:0 auto;
   }
   .todo-container{
     margin-top:10px;
@@ -123,14 +127,16 @@ body{
   .right{
     float: right;
   }
-  .important{
-    //box-shadow: inset 0px 0px 10px 0px #D44444;
+  .todo.important{
+    .todo-item-setting.mark-important{
+      i{
+        color:red;
+      }
+    }
   }
-  .todo.important .todo-item-setting.mark-important i{
-    color:red;
-  }
+
   .todo.completed{
-   // opacity: 0.5;
+    opacity: 0.5;
     .todo-item-setting{
       display: none;
     }
