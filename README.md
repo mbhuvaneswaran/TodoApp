@@ -15,6 +15,9 @@ This will build the application inside build folder.
 #Application Usage.
 - Enter a list name and click on "Add List" button to add a new list.
 - Each list has a input box in which todo item description can be entered and pressing enter key will add a todo item.
+- Clicking complete icon will complete the todo task and will disable the todo item. It can only be deleted.
+- Clicking delete icon will delete the todo item from list.
+- Clicking the bulb icon will mark the todo items important and move it as first item in the list.
 - Application is keyboard friendly.
 
 #KeyBoard Shortcuts     
