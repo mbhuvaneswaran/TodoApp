@@ -106,7 +106,7 @@
         function attachEvents(template){
             var input=template.querySelector('.todo-item-text');
             var deleteElm=template.querySelector('.remove-list');
-            TODO.Event.on('keypress',input,keyPressHandler);
+            TODO.Event.on('keydown',input,keyPressHandler);
             TODO.Event.on('click',deleteElm,deleteListHandler);
 
         }
@@ -117,7 +117,11 @@
             if (event.which == 13 || event.keyCode == 13) {
                 addTodoItem();
                 event.stopPropagation();
+
             }
+            if((event.which==68 || event.keyCode ==68)||(event.which==76 || event.keyCode ==76))
+            event.stopPropagation();
+
         }
 
     }

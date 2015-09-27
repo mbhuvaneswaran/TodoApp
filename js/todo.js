@@ -132,29 +132,32 @@ var TODO={};
             if(keyCodes.alt.status){
                 if(keyCodes.right.status){
                     //move to next list
-                    if(selectedList>=0)
-                    lists[selectedList].resetSelectedTodo();
-                    if(selectedList>=0 && selectedList<(lists.length-1))
-                    lists[selectedList].template.classList.remove('selected');
-                    if(selectedList<(lists.length-1))
-                    lists[++selectedList].template.classList.add('selected');
-                    if(selectedList==lists.length)
-                    selectedList--;
-                    lists[selectedList].template.querySelector('.todo-item-text').focus();
+                    if(lists.length) {
+                        if (selectedList >= 0)
+                            lists[selectedList].resetSelectedTodo();
+                        if (selectedList >= 0 && selectedList < (lists.length - 1))
+                            lists[selectedList].template.classList.remove('selected');
+                        if (selectedList < (lists.length - 1))
+                            lists[++selectedList].template.classList.add('selected');
+                        if (selectedList == lists.length)
+                            selectedList--;
+                        lists[selectedList].template.querySelector('.todo-item-text').focus();
+                    }
                 }
                 if(keyCodes.left.status){
                     //move previous list
-                    if(selectedList>=0)
-                    lists[selectedList].resetSelectedTodo();
-                    if(selectedList<0)
-                        selectedList++;
-                    if(selectedList>=1 && selectedList<(lists.length))
-                        lists[selectedList].template.classList.remove('selected');
-                    if(selectedList>=1)
-                        lists[--selectedList].template.classList.add('selected');
-                    lists[selectedList].template.querySelector('.todo-item-text').focus();
-                    lists[selectedList].resetSelectedTodo();
-
+                    if(lists.length) {
+                        if (selectedList >= 0)
+                            lists[selectedList].resetSelectedTodo();
+                        if (selectedList < 0)
+                            selectedList++;
+                        if (selectedList >= 1 && selectedList < (lists.length))
+                            lists[selectedList].template.classList.remove('selected');
+                        if (selectedList >= 1)
+                            lists[--selectedList].template.classList.add('selected');
+                        lists[selectedList].template.querySelector('.todo-item-text').focus();
+                        lists[selectedList].resetSelectedTodo();
+                    }
 
 
                 }
